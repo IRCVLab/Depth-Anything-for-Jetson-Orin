@@ -33,7 +33,8 @@ This project aims to provide a real-time depth estimation optimized for NVIDIA J
 ### Installations
 - **Clone This Repository**
 ```bash
-
+git clone https://github.com/IRCVLab/Depth-Anything-for-Jetson-Orin
+cd Depth-Anything-for-Jetson-Orin/
 ```
 - **Install TensorRT**
 ```bash
