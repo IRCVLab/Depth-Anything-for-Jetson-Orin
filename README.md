@@ -31,7 +31,7 @@ This project aims to provide a real-time depth estimation optimized for NVIDIA J
 - OpenCV (version: 4.5.4, ensure compatibility with GStreamer)
 
 ### Installations
-- **Clone Repository**
+- **Clone This Repository**
 ```bash
 
 ```
@@ -270,7 +270,7 @@ python3 depth.py --record
 >urwid:                 2.0.1\
 >wadllib:               1.3.3\
 >wheel:                 0.34.2\
->xkit:                 0.0.0\
+>xkit:                  0.0.0
 </div>
 </details>
 
