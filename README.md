@@ -163,7 +163,7 @@ python3 depth.py --record
 >sympy:                 1.12 \
 >tensorrt:              8.5.2.2 \
 >torch:                 2.0.0a0+8aa34602.nv23.3 \
->torchvision:           0.15.0 \
+>torchvision:           0.15.0
 
 <details>
 <summary>Entire</summary>
