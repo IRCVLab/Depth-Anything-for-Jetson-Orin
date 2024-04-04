@@ -76,7 +76,7 @@ print(cv2.getBuildInformation())
 
 ## Performance
 All performance was measured on the Jetson Orin(8GB). The input size means the size of the resized tensor that goes into the model, <ins>not the resolution of the camera</ins>. **<ins>Larger models(Base & Large) are not supported on Jetson Orin due to memory issues.</ins>** 
-| Model | Input size | Inference Time | Memory Usage |
+| Model | Input Size | Inference Time | Memory Usage |
 |:-:|:-:|:-:|:-:|
 | Depth-Anything-Small | 308x308 | 23.5ms | 626MB |
 | Depth-Anything-Small | 364x364 | 39.2ms | 640MB |
