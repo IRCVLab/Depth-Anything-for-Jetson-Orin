@@ -18,7 +18,7 @@ This project aims to provide a real-time depth estimation optimized for NVIDIA J
 ### Hardware
 
 - NVIDIA Jetson Orin Developer Kit(8GB)
-- A CSI camera module(or Webcam)
+- A CSI camera module
 - ~~Webcam~~\
   **The current code in ```camera.py``` <ins>only supports CSI cameras</ins>, but a simple code modification should enable it to work with USB Cameras as well. 😊**
 
