@@ -83,7 +83,7 @@ All performance was measured on the Jetson Orin(8GB). The input size means the s
 | Depth-Anything-Small | 406x406 | 47.7ms | 649MB |
 | Depth-Anything-Small | 518x518 | 98.0ms | 689MB |
 
-**All of weights files are [here](https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main/checkpoints).**
+**All of weights files are available [here](https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main/checkpoints).**
 ## Usage
 
 ### Code
