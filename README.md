@@ -11,7 +11,7 @@ This project aims to provide a real-time depth estimation optimized for NVIDIA J
 </div>
 
 ## Timelines
-- **2024-04-03: This repoistory is public! 🎉**
+- **2024-04-04: This repository is public! 🎉**
 
 ## Requirements
 
@@ -104,7 +104,7 @@ export(
 from camera import Camera
 
 camera = Camera(sensor_id=0, save=True)
-cam.run()
+camera.run()
 ```
 
 - **Depth Estimation**
