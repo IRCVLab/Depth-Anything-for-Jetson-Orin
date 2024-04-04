@@ -1,0 +1,8 @@
+*.pyc
+*.onnx
+*.pth
+*.trt
+*.png
+*.jpg
+*.mp4
+*.avi
