@@ -111,7 +111,7 @@ camera.run()
 - **Depth Estimation**
   - ```input_size``` must <ins>be divisible by 14</ins>.
 ```python
-from depth import Depth
+from depth import DepthEngine
 
 depth = DepthEngine(
     input_size=308
