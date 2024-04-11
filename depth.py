@@ -47,15 +47,16 @@ class DepthEngine:
         save_path: str -> Path to save the results
         raw: bool -> Use only the raw depth map
         stream: bool -> Stream the results
+        record: bool -> Record the results
         save: bool -> Save the results
         grayscale: bool -> Convert the depth map to grayscale
         """
         # Initialize the camera
         self.camera = Camera(sensor_id=sensor_id, frame_rate=frame_rate)
-        self.width = input_size
-        self.height = input_size
-        self._width = self.camera._width
-        self._height = self.camera._height
+        self.width = input_size # width of the input tensor
+        self.height = input_size # height of the input tensor
+        self._width = self.camera._width # width of the camera frame
+        self._height = self.camera._height # height of the camera frame
         self.save_path = Path(save_path) if isinstance(save_path, str) else Path("results")
         self.raw = raw
         self.stream = stream
