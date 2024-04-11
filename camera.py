@@ -4,17 +4,12 @@ from typing import Sequence
 import logging
 
 import os
-import glob
 import time
 import datetime
 from pathlib import Path
 
 import cv2
 import numpy as np
-
-# import torch
-# import torchvision
-# from ultralytics import YOLO
 
 # from jtop import jtop # Use this to monitor compute usage (for Jetson Nano)
 
@@ -36,11 +31,25 @@ class Camera:
         save: bool = False,
         log: bool = True,
     ) -> None:
+        """
+        sensor_id: int | Sequence[int] -> Camera sensor id
+        width: int -> Width of the display window
+        height: int -> Height of the display window
+        _width: int -> Width of the camera frame
+        _height: int -> Height of the camera frame
+        frame_rate: int -> Frame rate of the camera
+        flip_method: int -> Flip method of the camera
+        window_title: str -> Title of the display window
+        save_path: str -> Path to save the results
+        stream: bool -> Stream the camera feed
+        save: bool -> Save the camera feed
+        log: bool -> Log informations
+        """
         self.sensor_id = sensor_id
-        self.width = width
-        self.height = height
-        self._width = _width
-        self._height = _height
+        self.width = width # width of the display window
+        self.height = height # height of the display window
+        self._width = _width # width of the camera frame
+        self._height = _height # height of the camera frame
         self.frame_rate = frame_rate
         self.flip_method = flip_method
         self.window_title = window_title
@@ -92,7 +101,7 @@ class Camera:
             )
         )
     
-    def run(self, mode: str = 'single') -> None:
+    def run(self) -> None:
         """
         Streaming camera feed
         """
@@ -139,5 +148,5 @@ class Camera:
             return np.zeros((self.height, self.width, 3), dtype=np.uint8)
             
 if __name__ == '__main__':
-    cam = Camera(sensor_id=0, save=True)
+    cam = Camera(sensor_id=0, stream=True)
     cam.run()
