@@ -85,7 +85,7 @@ if __name__ == '__main__':
     
     export(
         weights_path="LiheYoung/depth_anything_vits14", # local hub or online
-        save_dir="weights", # folder name
+        save_path="weights", # folder name
         input_size=364, # 308 | 364 | 406 | 518
         onnx=True,
     )
