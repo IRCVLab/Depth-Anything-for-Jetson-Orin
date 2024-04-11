@@ -77,8 +77,8 @@ if __name__ == '__main__':
     args.add_argument("--input_size", type=int, default=406)
     
     export(
-        weights_path="LiheYoung/depth_anything_vitb14",
-        save_dir="weights",
-        input_size=518,
+        weights_path=args.weights_path,
+        save_dir=args.save_dir,
+        input_size=args.input_size,
         onnx=True,
     )
