@@ -12,19 +12,19 @@ from depth_anything import DepthAnything
 
 def export(
     weights_path: str,  
-    save_dir: str,
+    save_path: str,
     input_size: int,
     onnx: bool = True,
 ):  
     """
     weights_path: str -> Path to the PyTorch model(local / hub)
-    save_dir: str -> Directory to save the model
+    save_path: str -> Directory to save the model
     input_size: int -> Width and height of the input image(e.g. 308, 364, 406, 518)
     onnx: bool -> Export the model to ONNX format
     """
     weights_path = Path(weights_path)
     
-    os.makedirs(save_dir, exist_ok=True)
+    os.makedirs(save_path, exist_ok=True)
 
     # Load the model
     model = DepthAnything.from_pretrained(weights_path).to('cpu').eval()
@@ -32,7 +32,7 @@ def export(
     # Create a dummy input
     dummy_input = torch.ones((3, input_size, input_size)).unsqueeze(0)
     _ = model(dummy_input)
-    onnx_path = Path(save_dir) / f"{weights_path.stem}_{input_size}.onnx"
+    onnx_path = Path(save_path) / f"{weights_path.stem}_{input_size}.onnx"
     
     # Export the PyTorch model to ONNX format
     if onnx:
@@ -71,14 +71,21 @@ def export(
         f.write(serialized_engine)
     
 if __name__ == '__main__':
-    args = argparse.ArgumentParser()
-    args.add_argument("--weights_path", type=str, default="LiheYoung/depth_anything_vits14")
-    args.add_argument("--save_dir", type=str, default="weights")
-    args.add_argument("--input_size", type=int, default=406)
+    # args = argparse.ArgumentParser()
+    # args.add_argument("--weights_path", type=str, default="LiheYoung/depth_anything_vits14")
+    # args.add_argument("--save_path", type=str, default="weights")
+    # args.add_argument("--input_size", type=int, default=406)
+    
+    # export(
+    #     weights_path=args.weights_path,
+    #     save_path=args.save_path,
+    #     input_size=args.input_size,
+    #     onnx=True,
+    # )
     
     export(
-        weights_path=args.weights_path,
-        save_dir=args.save_dir,
-        input_size=args.input_size,
+        weights_path="LiheYoung/depth_anything_vits14", # local hub or online
+        save_dir="weights", # folder name
+        input_size=364, # 308 | 364 | 406 | 518
         onnx=True,
     )
