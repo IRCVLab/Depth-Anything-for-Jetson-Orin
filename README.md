@@ -287,6 +287,10 @@ export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libGLdispatch.so.0
 ### OpenCV
 **Nothing here yet.**
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=IRCVLab/Depth-Anything-for-Jetson-Orin&type=Date)](https://star-history.com/#IRCVLab/Depth-Anything-for-Jetson-Orin)
+
 ## References
 **✨ Special thanks to these amaizing projects:**
 - [DepthAnything](https://github.com/LiheYoung/Depth-Anything)
