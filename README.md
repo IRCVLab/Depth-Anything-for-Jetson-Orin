@@ -41,6 +41,10 @@ cd Depth-Anything-for-Jetson-Orin/
 sudo apt install tensorrt
 sudo apt update
 ```
+- **Install Huggingface package**
+```bash
+pip3 install huggingface_hub==0.22.2
+```
 - **Install torch-related packages**
 ```bash
 # torch
