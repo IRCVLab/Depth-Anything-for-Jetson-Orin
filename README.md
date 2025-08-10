@@ -53,11 +53,12 @@ pip3 install --no-cache https://developer.download.nvidia.com/compute/redist/jp/
 # torchvision
 pip3 install torchvision==0.15.0
 ```
-For more details, please refer to Nvidia's [Installing PyTorch for Jetson Platform](https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/). (**<ins>Do not install venv or Anaconda</ins>**)
+> [!IMPORTANT]
+> For more details, please refer to Nvidia's [Installing PyTorch for Jetson Platform](https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/). (**<ins>Do not install venv or Anaconda</ins>**)
 
 - **Install Jetson Stats**
 ```bash
-sudo pip3 install -U jetson-stats 
+sudo pip3 install -U jetson-stats
 ```
 - You can check the memory usage using the command below:
 ```bash
@@ -72,15 +73,19 @@ import cv2
 print(cv2.getBuildInformation())
 ```
 
-### ❌ Non-recommended ❌
-
-- **Do not install Anaconda**
-- **Do not reinstall OpenCV**
-  - **It is already installed with Jetson SDK** 
-- **Do not install PyTorch using ```pip3 install pytorch```**
+> [!WARNING]
+> ## ❌ Non-recommended ❌
+>
+> - **Do not install Anaconda**
+> - **Do not reinstall OpenCV**
+>   - **It is already installed with Jetson SDK**
+> - **Do not install PyTorch using `pip3 install pytorch`**
 
 ## Performance
-All performance was measured on the Jetson Orin(8GB). The input size means the size of the resized tensor that goes into the model, <ins>not the resolution of the camera</ins>. **<ins>Larger models(Base & Large) are not supported on Jetson Orin due to memory issues.</ins>** 
+All performance was measured on the Jetson Orin(8GB). The input size means the size of the resized tensor that goes into the model, <ins>not the resolution of the camera</ins>.
+> [!NOTE]
+> **<ins>Larger models(Base & Large) are not supported on Jetson Orin due to memory issues.</ins>**
+
 | Model | Input Size | Inference Time | Memory Usage |
 |:-:|:-:|:-:|:-:|
 | Depth-Anything-Small | 308x308 | 23.5ms | 626MB |
@@ -103,7 +108,8 @@ export(
     input_size=364, # 308 | 364 | 406 | 518
 )
 ```
-**✨ No networks are required from now**
+> [!NOTE]
+> **✨ No networks are required from now**
 - **Camera Streaming**
 ```python
 from camera import Camera
@@ -120,12 +126,12 @@ from depth import DepthEngine
 depth = DepthEngine(
     input_size=308
     frame_rate=15,
-    stream=True, 
+    stream=True,
 )
 depth.run()
 ```
-  
-### Running 
+
+### Running
 - **Convert weights(.pt/.pth) to TensorRT Engine(.trt)**
 ```bash
 python3 export.py
@@ -133,14 +139,14 @@ python3 export.py
 
 - **Real-time depth estimation**
 ```bash
-# Streaming the results 
+# Streaming the results
 python3 depth.py --stream
 
 # Streaming and Visualizing the depth map to grayscale
 python3 depth.py --stream --grayscale
 
 # Streaming and Saving the depth map
-python3 depth.py --stream --save 
+python3 depth.py --stream --save
 
 # Using only raw depth map(float type)
 python3 depth.py --raw
@@ -150,7 +156,8 @@ python3 depth.py --record
 ```
 **Frame rate of recorded video could be unmatched with the camera's frame rate <ins>due to variable inference time</ins>.**
 
-**⚠ Note: Please turn off the stream/save option for faster performance.**
+> [!NOTE]
+> **Please turn off the stream/save option for faster performance.**
 
 ## Dependencies
 
@@ -279,7 +286,9 @@ python3 depth.py --record
 </div>
 </details>
 
-**⚠ When installing Python packages that depend on opencv, please be cautious or do not install them.**
+> [!NOTE]
+> When installing Python packages that depend on opencv, please be cautious or do not install them.
+
 ## Issues
 **Known solutions for troubleshootings**
 ### Gstreamer
