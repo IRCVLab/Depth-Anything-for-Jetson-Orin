@@ -82,9 +82,7 @@ print(cv2.getBuildInformation())
 > - **Do not install PyTorch using `pip3 install pytorch`**
 
 ## Performance
-All performance was measured on the Jetson Orin(8GB). The input size means the size of the resized tensor that goes into the model, <ins>not the resolution of the camera</ins>.
-> [!NOTE]
-> Larger models(Base & Large) are not supported on Jetson Orin due to memory issues.
+All performance was measured on the Jetson Orin(8GB). The input size means the size of the resized tensor that goes into the model, <ins>not the resolution of the camera</ins>. All of weights files are available [here](https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main/checkpoints).
 
 | Model | Input Size | Inference Time | Memory Usage |
 |:-:|:-:|:-:|:-:|
@@ -94,7 +92,7 @@ All performance was measured on the Jetson Orin(8GB). The input size means the s
 | Depth-Anything-Small | 518x518 | 98.0ms | 689MB |
 
 > [!NOTE]
-> All of weights files are available [here](https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main/checkpoints).
+> Larger models(Base & Large) are not supported on Jetson Orin due to memory issues.
 ## Usage
 
 ### Code
@@ -109,7 +107,9 @@ export(
     input_size=364, # 308 | 364 | 406 | 518
 )
 ```
+
 **✨ No networks are required from now**
+
 - **Camera Streaming**
 ```python
 from camera import Camera
@@ -288,7 +288,7 @@ python3 depth.py --record
 </div>
 </details>
 
-> [!NOTE]
+> [!WARNING]
 > When installing Python packages that depend on opencv, please be cautious or do not install them.
 
 ## Issues
