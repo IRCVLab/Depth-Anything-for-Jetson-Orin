@@ -74,7 +74,7 @@ print(cv2.getBuildInformation())
 ```
 
 > [!WARNING]
-> ## ❌ Non-recommended ❌
+> **❌ Non-recommended ❌**
 >
 > - **Do not install Anaconda**
 > - **Do not reinstall OpenCV**
@@ -84,7 +84,7 @@ print(cv2.getBuildInformation())
 ## Performance
 All performance was measured on the Jetson Orin(8GB). The input size means the size of the resized tensor that goes into the model, <ins>not the resolution of the camera</ins>.
 > [!NOTE]
-> **<ins>Larger models(Base & Large) are not supported on Jetson Orin due to memory issues.</ins>**
+> Larger models(Base & Large) are not supported on Jetson Orin due to memory issues.
 
 | Model | Input Size | Inference Time | Memory Usage |
 |:-:|:-:|:-:|:-:|
@@ -93,7 +93,8 @@ All performance was measured on the Jetson Orin(8GB). The input size means the s
 | Depth-Anything-Small | 406x406 | 47.7ms | 649MB |
 | Depth-Anything-Small | 518x518 | 98.0ms | 689MB |
 
-**All of weights files are available [here](https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main/checkpoints).**
+> [!NOTE]
+> All of weights files are available [here](https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main/checkpoints).
 ## Usage
 
 ### Code
@@ -108,8 +109,7 @@ export(
     input_size=364, # 308 | 364 | 406 | 518
 )
 ```
-> [!NOTE]
-> **✨ No networks are required from now**
+**✨ No networks are required from now**
 - **Camera Streaming**
 ```python
 from camera import Camera
@@ -154,10 +154,12 @@ python3 depth.py --raw
 # Recording Results
 python3 depth.py --record
 ```
-**Frame rate of recorded video could be unmatched with the camera's frame rate <ins>due to variable inference time</ins>.**
 
 > [!NOTE]
-> **Please turn off the stream/save option for faster performance.**
+> Frame rate of recorded video could be unmatched with the camera's frame rate <ins>due to variable inference time</ins>.
+
+> [!TIP]
+> Please turn off the stream/save option for faster performance.
 
 ## Dependencies
 
