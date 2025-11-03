@@ -161,7 +161,7 @@ class DepthEngine:
         
         # Copy the input to the GPU, execute the inference, and copy the output back to the CPU
         cuda.memcpy_htod_async(self.d_input, self.h_input, self.cuda_stream)
-        self.context.execute_async_v2(bindings=[int(self.d_input), int(self.d_output)], stream_handle=self.cuda_stream.handle)
+        self.context.execute_v2(bindings=[int(self.d_input), int(self.d_output)])
         cuda.memcpy_dtoh_async(self.h_output, self.d_output, self.cuda_stream)
         self.cuda_stream.synchronize()
         
