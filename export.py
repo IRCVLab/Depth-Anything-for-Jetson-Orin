@@ -40,7 +40,7 @@ def export(
             model,
             dummy_input, 
             onnx_path, 
-            opset_version=11, 
+            opset_version=14, 
             input_names=["input"], 
             output_names=["output"], 
         )
@@ -86,6 +86,6 @@ if __name__ == '__main__':
     export(
         weights_path="LiheYoung/depth_anything_vits14", # local hub or online
         save_path="weights", # folder name
-        input_size=308, # 308 | 364 | 406 | 518
+        input_size=518, # 308 | 364 | 406 | 518
         onnx=True,
     )
